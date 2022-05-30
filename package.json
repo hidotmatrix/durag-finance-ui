@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@polyjuice-provider/web3": "^0.1.5",
     "ethers": "^4.0.27",
     "http-proxy-middleware": "^0.19.1",
     "nervos-godwoken-integration": "^0.1.5",
