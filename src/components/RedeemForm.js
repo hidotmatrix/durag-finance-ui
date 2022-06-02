@@ -88,6 +88,7 @@ export default function RedeemForm({ setHasConfirmedAddress, setUserAddress, num
   function updateAutoFields(address) {
     let constructedStreetAddress = ''
     function getTypes(addressItem, addressVal, item) {
+      console.log("addressItem, addressVal, item",addressItem, addressVal, item)
       addressItem.forEach(type => {
         if (Object.keys(item)[0] === line1) {
           if (type === 'street_number') {
