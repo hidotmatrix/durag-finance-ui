@@ -60,13 +60,13 @@ export async function handler(event) {
 
   const addressOfSigner = ethers.utils.verifyMessage(`${m1}\n\n${m2}\n${m3}`, signature)
   const isInvalid = addressOfSigner !== address
-
+  console.log("Reaching here!")
   if (isInvalid) {
     console.log('Unauthorized!', `${m1}\n\n${m2}\n${m3}`, signature, address)
   }
 
   try {
-    await client.query(
+    const data = await client.query(
       q.Create(q.Collection('addresses'), {
         data: {
           numberOfSocks: Number(numberBurned),
@@ -88,6 +88,7 @@ export async function handler(event) {
         }
       })
     )
+    console.log("data",data)
     return returnSuccess({ message: 'Success' })
   } catch (error) {
     console.error(error)

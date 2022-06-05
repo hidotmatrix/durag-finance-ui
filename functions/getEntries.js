@@ -5,7 +5,7 @@ const q = faunadb.query
 const client = new faunadb.Client({
   secret: process.env.FAUNADB_SERVER_SECRET
 })
-
+console.log(client)
 function isAddress(value) {
   try {
     return ethers.utils.getAddress(value.toLowerCase())
@@ -46,12 +46,13 @@ export async function handler(event) {
 
   try {
     const allRefs = await client.query(q.Paginate(q.Match(q.Index('get_by_address'), address)))
-
+    consol.log("allRefs--",allRefs)
     if (allRefs.data.length === 0) {
       return returnSuccess([])
     }
 
     const query = await client.query(allRefs.data.map(ref => q.Get(ref)))
+    console.log("query--", query)
     return returnSuccess(query.map(res => res.data))
   } catch (error) {
     console.error(error)
