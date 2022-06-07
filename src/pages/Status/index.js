@@ -42,11 +42,13 @@ export default function Body({ totalSupply, ready, balanceSOCKS }) {
         method: 'POST',
         body: JSON.stringify({ address: account, signature: signature, timestamp: timestamp })
       }).then(async response => {
+        console.log(response)
         if (response.status !== 200) {
           const parsed = await response.json().catch(() => ({ error: 'Unknown Error' }))
           console.error(parsed.error)
           setError(parsed.error)
         } else {
+          console.log("Hitting here...")
           const parsed = await response.json()
           setData(parsed)
         }
@@ -86,10 +88,8 @@ export default function Body({ totalSupply, ready, balanceSOCKS }) {
                     <ul>
                       <li>
                         Order Date:{' '}
-                        {new Date(Number(d.timestamp) * 1000).toLocaleDateString(undefined, {
-                          dateStyle: 'long',
-                          timeStyle: 'short'
-                        })}
+                        {/* {new Date(d.timestamp).toLocaleDateString(undefined,  { year: "numeric", month: "long", day: "numeric" })} */}
+                        {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(d.timestamp*1000)}
                       </li>
                       <li>SOCKS Redeemed: {d.numberOfSocks}</li>
                       <li>

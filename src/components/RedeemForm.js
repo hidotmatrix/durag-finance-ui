@@ -88,7 +88,6 @@ export default function RedeemForm({ setHasConfirmedAddress, setUserAddress, num
   function updateAutoFields(address) {
     let constructedStreetAddress = ''
     function getTypes(addressItem, addressVal, item) {
-      console.log("addressItem, addressVal, item",addressItem, addressVal, item)
       addressItem.forEach(type => {
         if (Object.keys(item)[0] === line1) {
           if (type === 'street_number') {
@@ -252,20 +251,18 @@ export default function RedeemForm({ setHasConfirmedAddress, setUserAddress, num
           const autoMessage = `${nameMap[address]}: ${account}\n${nameMap[timestamp]}: ${timestampToSign}\n${nameMap[numberBurned]}: ${actualNumberBurned}`
 
           signer.signMessage(`${header}\n\n${formDataMessage}\n${autoMessage}`).then(returnedSignature => {
-            fetch('/', {  
+            fetch('/.netlify/functions/setEntries', {
               method: 'POST',
               headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-              body: encode({
-                'form-name': 'redeem',
-                ...{
-                  ...formState,
-                  [address]: account,
-                  [timestamp]: timestampToSign,
-                  [numberBurned]: actualNumberBurned,
-                  [signature]: returnedSignature,
-                  ...(recaptchaEnabled ? { 'g-recaptcha-response': recaptcha } : {})
-                }
-              })
+              body: JSON.stringify({
+                    ...formState,
+                    [address]: account,
+                    [timestamp]: timestampToSign,
+                    [numberBurned]: actualNumberBurned,
+                    [signature]: returnedSignature,
+                    ...(recaptchaEnabled ? { 'g-recaptcha-response': recaptcha } : {})
+                  })
+
             })
               .then(() => {
                 setHasConfirmedAddress(true)

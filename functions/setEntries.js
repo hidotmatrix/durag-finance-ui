@@ -29,9 +29,7 @@ function returnSuccess(data, statusCode = 200) {
 }
 
 export async function handler(event) {
-  const { payload } = JSON.parse(event.body)
-  const { data } = payload
-
+  const data = JSON.parse(event.body)
   const {
     name,
     line1,
@@ -64,7 +62,6 @@ export async function handler(event) {
   if (isInvalid) {
     console.log('Unauthorized!', `${m1}\n\n${m2}\n${m3}`, signature, address)
   }
-
   try {
     await client.query(
       q.Create(q.Collection('addresses'), {
