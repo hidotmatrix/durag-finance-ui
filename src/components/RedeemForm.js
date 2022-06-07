@@ -6,14 +6,6 @@ import ReCAPTCHA from 'react-google-recaptcha'
 
 import Suggest from './Suggest'
 
-// we need to capture the full address into netlify...
-// https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
-}
-
 // variables for the netlify names of each form field
 const bot = 'beep-boop'
 const name = 'name'
