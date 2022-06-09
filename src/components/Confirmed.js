@@ -99,7 +99,7 @@ export default function Confirmed({ hash, type, amount, clearLastTransaction, cl
           </EtherscanLink>
         </CheckoutPrompt>
         <ButtonFrame
-          text={`Redeem your SOCKS now`}
+          text={`Redeem your DURAGS now`}
           type={'cta'}
           onClick={() => {
             clearLastTransaction()
