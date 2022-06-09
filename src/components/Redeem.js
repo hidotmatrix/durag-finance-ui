@@ -95,7 +95,7 @@ export default function Redeem({
         <ButtonFrame
           className="button"
           disabled={false}
-          text={account === null ? 'Connect Wallet' : 'Redeem SOCKS'}
+          text={account === null ? 'Connect Wallet' : 'Redeem DURAGS'}
           type={'cta'}
           onClick={() => {
             setConnector('Injected', { suppressAndThrowErrors: true }).catch(() => {
@@ -227,7 +227,7 @@ export default function Redeem({
             disabled={pending}
             pending={pending}
             // text={pending ? `Waiting for confirmation...` : `Redeem ${numberBurned} SOCKS`}
-            text={pending ? `Waiting for confirmation...` : ` Place order (Redeem ${numberBurned} DURAG) `}
+            text={pending ? `Waiting for confirmation...` : ` Place order (Redeem ${numberBurned} DURAGS) `}
             type={'cta'}
             onClick={() => {
               burn(numberBurned.toString())

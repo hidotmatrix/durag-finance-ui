@@ -46,7 +46,7 @@ export default function Works({ closeCheckout }) {
 
       <Title>How it works:</Title>
       <Desc>
-        $SOCKS is a token that entitles you to 1 real pair of limited edition socks, shipped anywhere in the world.
+        $DURAG is a token that entitles you to 1 real pair of limited edition durags, shipped anywhere in the world.
       </Desc>
       <Desc>
         You can sell the token back at any time. To get a <i>real</i> pair, redeem a $DURAG token
