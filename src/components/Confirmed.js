@@ -89,7 +89,7 @@ export default function Confirmed({ hash, type, amount, clearLastTransaction, cl
           <ImgStyle src={sent} alt="Logo" />
           <InfoFrame>
             <Owned>
-              <p> {`You got ${amountFormatter(amount, 18, 0)} SOCKS!`}</p>
+              <p> {`You got ${amountFormatter(amount, 18, 0)} DURAGS!`}</p>
             </Owned>
           </InfoFrame>
         </TopFrame>
