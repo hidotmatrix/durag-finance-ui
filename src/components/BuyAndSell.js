@@ -106,13 +106,13 @@ export default function BuyAndSell({
         if (pending && hash) {
           return 'Waiting for confirmation'
         } else {
-          return 'Sell Socks'
+          return 'Sell Durag'
         }
       } else {
         if (pending && hash) {
           return 'Waiting for confirmation'
         } else {
-          return 'Buy Socks'
+          return 'Buy Durag'
         }
       }
     } else {
@@ -244,7 +244,7 @@ export default function BuyAndSell({
       )}
       {shouldRenderUnlock ? (
         <ButtonFrame
-          text={`Unlock ${buying ? selectedTokenSymbol : 'SOCKS'}`}
+          text={`Unlock ${buying ? selectedTokenSymbol : 'DURAG'}`}
           type={'cta'}
           pending={pending}
           onClick={() => {

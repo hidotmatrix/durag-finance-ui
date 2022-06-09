@@ -11,13 +11,13 @@ export default function Body({ totalSupply, reserveSOCKSToken, ready, balanceSOC
     <AppWrapper overlay={state.visible}>
       <Header totalSupply={totalSupply} ready={ready} balanceSOCKS={balanceSOCKS} setShowConnect={() => {}} />
       <Content>
-        <Title>SOCKS Stats</Title>
+        <Title>DURAG Stats</Title>
         <Description>
           <p>
             <span role="img" aria-label="socks">
               🧦
             </span>
-            Initial SOCKS
+            Initial DURAG
           </p>
           <p>500</p>
         </Description>
@@ -26,7 +26,7 @@ export default function Body({ totalSupply, reserveSOCKSToken, ready, balanceSOC
             <span role="img" aria-label="socks">
               🔥
             </span>
-            Redeemed SOCKS
+            Redeemed DURAG
           </p>
           <p>{500 - totalSupply}</p>
         </Description>
@@ -35,13 +35,13 @@ export default function Body({ totalSupply, reserveSOCKSToken, ready, balanceSOC
             <span role="img" aria-label="socks">
               💦
             </span>
-            SOCKS Pool
+            DURAG Pool
           </p>
           <p>{amountFormatter(reserveSOCKSToken, 18, 0)}</p>
         </Description>
         <Shim />
         <Footer>
-          The price of SOCKS changes when tokens are bought and sold.
+          The price of DURAG changes when tokens are bought and sold.
           <br />
           <br />
           <a

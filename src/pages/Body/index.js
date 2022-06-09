@@ -26,7 +26,7 @@ export function Header({ totalSupply, ready, balanceSOCKS, setShowConnect }) {
           <span role="img" aria-label="unicorn">
             🦄
           </span>{' '}
-          Unisocks
+          DURAG FINANCE
         </Unicorn>
       </Link>
       <div style={{ display: 'flex', flexDirection: 'row' }}>
@@ -43,7 +43,7 @@ export function Header({ totalSupply, ready, balanceSOCKS, setShowConnect }) {
         <Account onClick={() => handleAccount()} balanceSOCKS={balanceSOCKS}>
           {account ? (
             balanceSOCKS > 0 ? (
-              <SockCount>{balanceSOCKS && `${amountFormatter(balanceSOCKS, 18, 0)}`} SOCKS</SockCount>
+              <SockCount>{balanceSOCKS && `${amountFormatter(balanceSOCKS, 18, 0)}`} DUARG</SockCount>
             ) : (
               <SockCount>{account.slice(0, 6)}...</SockCount>
             )

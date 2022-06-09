@@ -14,8 +14,8 @@ export default function Card({ totalSupply, dollarPrice, reserveSOCKSToken }) {
       options={{ scale: 1.01, max: 10, glare: true, 'max-glare': 1, speed: 1000 }}
     >
       <CardWrapper>
-        <Title>Unisocks Edition 0</Title>
-        <SubTitle>$SOCKS</SubTitle>
+        <Title>DURAG Edition 0</Title>
+        <SubTitle>$DURAG</SubTitle>
         <Gallery />
         <MarketData>
           <span>

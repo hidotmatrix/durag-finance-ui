@@ -91,7 +91,7 @@ export default function Body({ totalSupply, ready, balanceSOCKS }) {
                         {/* {new Date(d.timestamp).toLocaleDateString(undefined,  { year: "numeric", month: "long", day: "numeric" })} */}
                         {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(d.timestamp*1000)}
                       </li>
-                      <li>SOCKS Redeemed: {d.numberOfSocks}</li>
+                      <li>DURAG Redeemed: {d.numberOfSocks}</li>
                       <li>
                         Status:{' '}
                         {d.invalid
