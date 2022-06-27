@@ -75,10 +75,10 @@ export function useAddressBalance(address, tokenAddress) {
   const [balance, setBalance] = useState()
 
   const updateBalance = useCallback(() => {
-    if (isAddress(address) && (tokenAddress === 'ETH' || isAddress(tokenAddress))) {
+    if (isAddress(address) && (tokenAddress === 'CKB' || isAddress(tokenAddress))) {
       let stale = false
-      
-      ;(tokenAddress === 'ETH' ? getEtherBalance(address, library) : getTokenBalance(tokenAddress, address, library))
+
+      ;(tokenAddress === 'CKB' ? getEtherBalance(address, library) : getTokenBalance(tokenAddress, address, library))
         .then(value => {
           if (!stale) {
             setBalance(value)
@@ -143,7 +143,7 @@ export function useTotalSupply(contract) {
 export function useExchangeReserves(tokenAddress) {
   const exchangeContract = useExchangeContract(tokenAddress)
 
-  const reserveETH = useAddressBalance(exchangeContract && exchangeContract.address, TOKEN_ADDRESSES.ETH)
+  const reserveETH = useAddressBalance(exchangeContract && exchangeContract.address, TOKEN_ADDRESSES.CKB)
   const reserveToken = useAddressBalance(exchangeContract && exchangeContract.address, tokenAddress)
 
   return { reserveETH, reserveToken }

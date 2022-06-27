@@ -55,7 +55,7 @@ function calculateEtherTokenInputFromOutput(outputAmount, inputReserve, outputRe
   return numerator.div(denominator).add(ethers.constants.One)
 }
 
-// get exchange rate for a token/ETH pair
+// get exchange rate for a token/CKB pair
 function getExchangeRate(inputValue, outputValue, invert = false) {
   const inputDecimals = 18
   const outputDecimals = 18
@@ -89,7 +89,7 @@ function calculateAmount(
   reserveSelectedTokenToken
 ) {
   // eth to token - buy
-  if (inputTokenSymbol === TOKEN_SYMBOLS.ETH && outputTokenSymbol === TOKEN_SYMBOLS.SOCKS) {
+  if (inputTokenSymbol === TOKEN_SYMBOLS.CKB && outputTokenSymbol === TOKEN_SYMBOLS.SOCKS) {
     const amount = calculateEtherTokenInputFromOutput(SOCKSAmount, reserveSOCKSETH, reserveSOCKSToken)
     if (amount.lte(ethers.constants.Zero) || amount.gte(ethers.constants.MaxUint256)) {
       throw Error()
@@ -98,7 +98,7 @@ function calculateAmount(
   }
 
   // token to eth - sell
-  if (inputTokenSymbol === TOKEN_SYMBOLS.SOCKS && outputTokenSymbol === TOKEN_SYMBOLS.ETH) {
+  if (inputTokenSymbol === TOKEN_SYMBOLS.SOCKS && outputTokenSymbol === TOKEN_SYMBOLS.CKB) {
     const amount = calculateEtherTokenOutputFromInput(SOCKSAmount, reserveSOCKSToken, reserveSOCKSETH)
     if (amount.lte(ethers.constants.Zero) || amount.gte(ethers.constants.MaxUint256)) {
       throw Error()
@@ -150,7 +150,7 @@ export default function Main({ stats, status }) {
   const { library, account } = useWeb3Context()
 
   // selected token
-  const [selectedTokenSymbol, setSelectedTokenSymbol] = useState(TOKEN_SYMBOLS.ETH)
+  const [selectedTokenSymbol, setSelectedTokenSymbol] = useState(TOKEN_SYMBOLS.CKB)
 
   // get exchange contracts
   const exchangeContractSOCKS = useExchangeContract(TOKEN_ADDRESSES.SOCKS)
@@ -162,10 +162,10 @@ export default function Main({ stats, status }) {
   const tokenContractSelectedToken = useTokenContract(TOKEN_ADDRESSES[selectedTokenSymbol])
 
   // get balances
-  const balanceETH = useAddressBalance(account, TOKEN_ADDRESSES.ETH)
+  const balanceETH = useAddressBalance(account, TOKEN_ADDRESSES.CKB)
   const balanceSOCKS = useAddressBalance(account, TOKEN_ADDRESSES.SOCKS)
   const balanceSelectedToken = useAddressBalance(account, TOKEN_ADDRESSES[selectedTokenSymbol])
-  
+
   // totalsupply
   const totalSupply = useTotalSupply(tokenContractSOCKS)
 
@@ -178,7 +178,7 @@ export default function Main({ stats, status }) {
   const allowanceSelectedToken = useExchangeAllowance(account, TOKEN_ADDRESSES[selectedTokenSymbol])
 
   // get reserves
-  const reserveSOCKSETH = useAddressBalance(exchangeContractSOCKS && exchangeContractSOCKS.address, TOKEN_ADDRESSES.ETH)
+  const reserveSOCKSETH = useAddressBalance(exchangeContractSOCKS && exchangeContractSOCKS.address, TOKEN_ADDRESSES.CKB)
   const reserveSOCKSToken = useAddressBalance(
     exchangeContractSOCKS && exchangeContractSOCKS.address,
     TOKEN_ADDRESSES.SOCKS
@@ -187,7 +187,7 @@ export default function Main({ stats, status }) {
     TOKEN_ADDRESSES[selectedTokenSymbol]
   )
 
-  const reserveDAIETH = useAddressBalance(exchangeContractDAI && exchangeContractDAI.address, TOKEN_ADDRESSES.ETH)
+  const reserveDAIETH = useAddressBalance(exchangeContractDAI && exchangeContractDAI.address, TOKEN_ADDRESSES.CKB)
   const reserveDAIToken = useAddressBalance(exchangeContractDAI && exchangeContractDAI.address, TOKEN_ADDRESSES.DAI)
 
   const [USDExchangeRateETH, setUSDExchangeRateETH] = useState()
@@ -195,14 +195,14 @@ export default function Main({ stats, status }) {
 
   const ready = !!(
     (account === null || allowanceSOCKS) &&
-    (selectedTokenSymbol === 'ETH' || account === null || allowanceSelectedToken) &&
+    (selectedTokenSymbol === 'CKB' || account === null || allowanceSelectedToken) &&
     (account === null || balanceETH) &&
     (account === null || balanceSOCKS) &&
     (account === null || balanceSelectedToken) &&
     reserveSOCKSETH &&
     reserveSOCKSToken &&
-    (selectedTokenSymbol === 'ETH' || reserveSelectedTokenETH) &&
-    (selectedTokenSymbol === 'ETH' || reserveSelectedTokenToken) &&
+    (selectedTokenSymbol === 'CKB' || reserveSelectedTokenETH) &&
+    (selectedTokenSymbol === 'CKB' || reserveSelectedTokenToken) &&
     selectedTokenSymbol &&
     (USDExchangeRateETH || USDExchangeRateSelectedToken)
   )
@@ -211,7 +211,7 @@ export default function Main({ stats, status }) {
     try {
       const exchangeRateDAI = getExchangeRate(reserveDAIETH, reserveDAIToken)
 
-      if (selectedTokenSymbol === TOKEN_SYMBOLS.ETH) {
+      if (selectedTokenSymbol === TOKEN_SYMBOLS.CKB) {
         setUSDExchangeRateETH(exchangeRateDAI)
       } else {
         const exchangeRateSelectedToken = getExchangeRate(reserveSelectedTokenETH, reserveSelectedTokenToken)
@@ -236,7 +236,7 @@ export default function Main({ stats, status }) {
   function dollarize(amount) {
     return _dollarize(
       amount,
-      selectedTokenSymbol === TOKEN_SYMBOLS.ETH ? USDExchangeRateETH : USDExchangeRateSelectedToken
+      selectedTokenSymbol === TOKEN_SYMBOLS.CKB ? USDExchangeRateETH : USDExchangeRateSelectedToken
     )
   }
 
@@ -321,7 +321,7 @@ export default function Main({ stats, status }) {
       }
 
       // validate allowance
-      if (selectedTokenSymbol !== 'ETH') {
+      if (selectedTokenSymbol !== 'CKB') {
         if (allowanceSelectedToken && maximum && allowanceSelectedToken.lt(maximum)) {
           const error = Error()
           error.code = ERROR_CODES.INSUFFICIENT_ALLOWANCE
@@ -357,7 +357,7 @@ export default function Main({ stats, status }) {
       .getGasPrice()
       .then(gasPrice => gasPrice.mul(ethers.utils.bigNumberify(150)).div(ethers.utils.bigNumberify(100)))
 
-    if (selectedTokenSymbol === TOKEN_SYMBOLS.ETH) {
+    if (selectedTokenSymbol === TOKEN_SYMBOLS.CKB) {
       const estimatedGasLimit = await exchangeContractSOCKS.estimate.ethToTokenSwapOutput(outputValue, deadline, {
         value: maximumInputValue
       })
@@ -400,7 +400,7 @@ export default function Main({ stats, status }) {
         throw error
       }
 
-      // how much ETH or tokens the sale will result in
+      // how much CKB or tokens the sale will result in
       let requiredValueInSelectedToken
       try {
         requiredValueInSelectedToken = calculateAmount(
@@ -475,7 +475,7 @@ export default function Main({ stats, status }) {
       .getGasPrice()
       .then(gasPrice => gasPrice.mul(ethers.utils.bigNumberify(150)).div(ethers.utils.bigNumberify(100)))
 
-    if (selectedTokenSymbol === TOKEN_SYMBOLS.ETH) {
+    if (selectedTokenSymbol === TOKEN_SYMBOLS.CKB) {
       const estimatedGasLimit = await exchangeContractSOCKS.estimate.tokenToEthSwapInput(
         inputValue,
         minimumOutputValue,

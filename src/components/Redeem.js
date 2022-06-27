@@ -142,7 +142,7 @@ export default function Redeem({
             <InfoFrame hasPickedAmount={hasPickedAmount}>
               <ImgStyle src={test} alt="Logo" hasPickedAmount={hasPickedAmount} />
               <Owned>
-                <p>{state.count} DUARGS</p>
+                <p>{state.count} DURAGS</p>
                 <p style={{ fontSize: '20px', fontWeight: '400', color: '#AEAEAE' }}>One size fits most</p>
                 <p style={{ fontSize: '14px', fontWeight: '500', marginTop: '16px', color: '#AEAEAE' }}>Edition 0</p>
               </Owned>
@@ -177,7 +177,7 @@ export default function Redeem({
             <InfoFrame hasPickedAmount={hasPickedAmount}>
               <ImgStyle src={test} alt="Logo" hasPickedAmount={hasPickedAmount} />
               <Owned>
-                <p style={{ fontSize: '18px' }}>{state.count} DUARGS</p>
+                <p style={{ fontSize: '18px' }}>{state.count} DURAGS</p>
                 <p style={{ fontSize: '14px', fontWeight: '500' }}>One size fits most</p>
                 <p
                   style={{

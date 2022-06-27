@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { useWeb3Context } from 'web3-react'
 import { Link } from 'react-router-dom'
+import logo from './logo.jpg'
 
 import { useAppContext } from '../../context'
 import Card from '../../components/Card'
@@ -24,9 +25,10 @@ export function Header({ totalSupply, ready, balanceSOCKS, setShowConnect }) {
       <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
         <Unicorn>
           <span role="img" aria-label="unicorn">
-            🦄
+            {/* 🦄 */}
+            <img src={logo} width="100%" height="30" alt=""></img>
           </span>{' '}
-          DURAG FINANCE
+          {/* DURAG FINANCE */}
         </Unicorn>
       </Link>
       <div style={{ display: 'flex', flexDirection: 'row' }}>
@@ -43,7 +45,7 @@ export function Header({ totalSupply, ready, balanceSOCKS, setShowConnect }) {
         <Account onClick={() => handleAccount()} balanceSOCKS={balanceSOCKS}>
           {account ? (
             balanceSOCKS > 0 ? (
-              <SockCount>{balanceSOCKS && `${amountFormatter(balanceSOCKS, 18, 0)}`} DUARG</SockCount>
+              <SockCount>{balanceSOCKS && `${amountFormatter(balanceSOCKS, 18, 0)}`} DURAG</SockCount>
             ) : (
               <SockCount>{account.slice(0, 6)}...</SockCount>
             )

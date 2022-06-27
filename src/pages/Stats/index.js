@@ -14,27 +14,27 @@ export default function Body({ totalSupply, reserveSOCKSToken, ready, balanceSOC
         <Title>DURAG Stats</Title>
         <Description>
           <p>
-            <span role="img" aria-label="socks">
+            {/* <span role="img" aria-label="socks">
               🧦
-            </span>
+            </span> */}
             Initial DURAG
           </p>
           <p>500</p>
         </Description>
         <Description>
           <p>
-            <span role="img" aria-label="socks">
+            {/* <span role="img" aria-label="socks">
               🔥
-            </span>
+            </span> */}
             Redeemed DURAG
           </p>
           <p>{500 - totalSupply}</p>
         </Description>
         <Description>
           <p>
-            <span role="img" aria-label="socks">
+            {/* <span role="img" aria-label="socks">
               💦
-            </span>
+            </span> */}
             DURAG Pool
           </p>
           <p>{amountFormatter(reserveSOCKSToken, 18, 0)}</p>

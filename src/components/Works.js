@@ -66,8 +66,8 @@ export default function Works({ closeCheckout }) {
       </Desc>
       <Title>Duragpay:</Title>
       <Desc>
-        Buying or selling durag uses the durag finance protocol and accepts any token input as a payment method. The pool of
-        DURAG is a uniswap pool where 500 DURAG tokens were deposited along with the starting value of ETH.{' '}
+        Buying or selling durag uses the durag finance protocol and accepts any token input as a payment method. The
+        pool of DURAG is a uniswap pool where 500 DURAG tokens were deposited along with the starting value of CKB.{' '}
       </Desc>
       <Desc>
         <a href="https://docs.uniswap.org/" target="_blank" rel="noopener noreferrer">

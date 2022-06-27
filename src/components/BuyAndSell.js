@@ -8,6 +8,7 @@ import IncrementToken from './IncrementToken'
 import { useAppContext } from '../context'
 import { ERROR_CODES, amountFormatter, TRADE_TYPES } from '../utils'
 import test from './Gallery/test.png'
+import logo from './Gallery/logo.jpg'
 // import { ethers } from 'ethers'
 
 export function useCount() {
@@ -45,7 +46,7 @@ function getValidationErrorMessage(validationError) {
         return 'Set Allowance to Continue'
       }
       case ERROR_CODES.INSUFFICIENT_ETH_GAS: {
-        return 'Not Enough ETH to Pay Gas'
+        return 'Not Enough CKB to Pay Gas'
       }
       case ERROR_CODES.INSUFFICIENT_SELECTED_TOKEN_BALANCE: {
         return 'Not Enough of Selected Token'
@@ -205,8 +206,9 @@ export default function BuyAndSell({
         {/* <button onClick={() => fake()}>test</button> */}
         <Unicorn>
           <span role="img" aria-label="unicorn">
-            🦄
+            {/* 🦄 */}
           </span>{' '}
+          <img src={logo} width="10%" height="20%" alt=""></img>
           Pay
         </Unicorn>
         <ImgStyle src={test} alt="Logo" />
