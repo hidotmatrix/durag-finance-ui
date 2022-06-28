@@ -8,7 +8,7 @@ import IncrementToken from './IncrementToken'
 import { useAppContext } from '../context'
 import { ERROR_CODES, amountFormatter, TRADE_TYPES } from '../utils'
 import test from './Gallery/test.png'
-import logo from './Gallery/logo.jpg'
+// import logo from './Gallery/logo.jpg'
 // import { ethers } from 'ethers'
 
 export function useCount() {
@@ -208,7 +208,6 @@ export default function BuyAndSell({
           <span role="img" aria-label="unicorn">
             {/* 🦄 */}
           </span>{' '}
-          <img src={logo} width="10%" height="20%" alt=""></img>
           Pay
         </Unicorn>
         <ImgStyle src={test} alt="Logo" />
