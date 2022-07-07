@@ -247,14 +247,13 @@ export default function RedeemForm({ setHasConfirmedAddress, setUserAddress, num
               method: 'POST',
               headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
               body: JSON.stringify({
-                    ...formState,
-                    [address]: account,
-                    [timestamp]: timestampToSign,
-                    [numberBurned]: actualNumberBurned,
-                    [signature]: returnedSignature,
-                    ...(recaptchaEnabled ? { 'g-recaptcha-response': recaptcha } : {})
-                  })
-
+                ...formState,
+                [address]: account,
+                [timestamp]: timestampToSign,
+                [numberBurned]: actualNumberBurned,
+                [signature]: returnedSignature,
+                ...(recaptchaEnabled ? { 'g-recaptcha-response': recaptcha } : {})
+              })
             })
               .then(() => {
                 setHasConfirmedAddress(true)
@@ -328,9 +327,9 @@ const ButtonFrame = styled.button`
   cursor: pointer;
   pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
 
-  background: linear-gradient(97.28deg, #fe6dde 2.08%, #ff9dea 106.51%);
+  background: linear-gradient(97.28deg, #136de7 2.08%, #ff9dea 106.51%);
   box-shadow: 0px 4px 20px rgba(239, 162, 250, 0.7);
-  background: ${props => (props.disabled ? '#f1f2f6' : 'linear-gradient(97.28deg, #fe6dde 2.08%, #ff9dea 106.51%)')};
+  background: ${props => (props.disabled ? '#f1f2f6' : 'linear-gradient(97.28deg, #136de7 2.08%, #ff9dea 106.51%)')};
   box-shadow: ${props => (props.disabled ? 'none' : '0px 4px 20px rgba(239, 162, 250, 0.7)')};
   color: ${props => (props.disabled ? '#aeaeae' : props.theme.white)};
   transform: scale(1);

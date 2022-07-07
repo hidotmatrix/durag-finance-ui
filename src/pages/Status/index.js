@@ -48,7 +48,6 @@ export default function Body({ totalSupply, ready, balanceSOCKS }) {
           console.error(parsed.error)
           setError(parsed.error)
         } else {
-          console.log("Hitting here...")
           const parsed = await response.json()
           setData(parsed)
         }
@@ -70,7 +69,7 @@ export default function Body({ totalSupply, ready, balanceSOCKS }) {
       <AppWrapper overlay={state.visible}>
         <Header totalSupply={totalSupply} ready={ready} balanceSOCKS={balanceSOCKS} setShowConnect={() => {}} />
         <Content>
-          <p>
+          <p style={{ color: 'white' }}>
             You can use this page to check the status of your Unisocks order, please bookmark it for future reference.
           </p>
 
@@ -89,7 +88,14 @@ export default function Body({ totalSupply, ready, balanceSOCKS }) {
                       <li>
                         Order Date:{' '}
                         {/* {new Date(d.timestamp).toLocaleDateString(undefined,  { year: "numeric", month: "long", day: "numeric" })} */}
-                        {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(d.timestamp*1000)}
+                        {new Intl.DateTimeFormat('en-US', {
+                          year: 'numeric',
+                          month: '2-digit',
+                          day: '2-digit',
+                          hour: '2-digit',
+                          minute: '2-digit',
+                          second: '2-digit'
+                        }).format(d.timestamp * 1000)}
                       </li>
                       <li>DURAG Redeemed: {d.numberOfSocks}</li>
                       <li>
