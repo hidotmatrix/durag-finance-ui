@@ -14,6 +14,7 @@ const OrderDiv = styled.div`
   border-radius: 2rem;
   border: 1px solid black;
   margin-bottom: 1rem;
+  colors: white;
 `
 
 export default function Body({ totalSupply, ready, balanceSOCKS }) {
@@ -84,7 +85,7 @@ export default function Body({ totalSupply, ready, balanceSOCKS }) {
               data.map((d, i) => {
                 return (
                   <OrderDiv key={i}>
-                    <ul>
+                    <ul style={{ color: 'white' }}>
                       <li>
                         Order Date:{' '}
                         {/* {new Date(d.timestamp).toLocaleDateString(undefined,  { year: "numeric", month: "long", day: "numeric" })} */}
@@ -136,7 +137,7 @@ export default function Body({ totalSupply, ready, balanceSOCKS }) {
                 )
               })
             ))}
-          <p style={{ fontSize: '.75rem', textAlign: 'center' }}>
+          <p style={{ fontSize: '.75rem', textAlign: 'center', color: 'white' }}>
             Problem with an order?{' '}
             <a
               href={`mailto:contact@uniswap.org?Subject=Unipig%20Order%20for%20${account}`}
@@ -162,7 +163,7 @@ const AppWrapper = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  overflow: ${props => (props.overlay ? 'hidden' : 'scroll')};
+  overflow: ${props => (props.overlay ? 'hidden' : 'auto')};
   scroll-behavior: smooth;
   position: ${props => (props.overlay ? 'fixed' : 'initial')};
 `

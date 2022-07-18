@@ -248,8 +248,7 @@ const AppWrapper = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  overflow: ${props => (props.overlay ? 'hidden' : 'scroll')};
-  scroll-behavior: smooth;
+  overflow: ${props => (props.overlay ? 'hidden' : 'auto')};
   position: ${props => (props.overlay ? 'fixed' : 'initial')};
 `
 
