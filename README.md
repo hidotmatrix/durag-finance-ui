@@ -4,15 +4,15 @@
 
 ### Clone this repo
 
-open terminal and run git clone https://github.com/hidotmatrix/durag-finance-ui
+Open terminal and run git clone https://github.com/hidotmatrix/durag-finance-ui
 
-### cd into the directory of th repo and install dependencies
+### Change into the directory of th repo and install dependencies
 
 cd durag-finance-ui && yarn install
 
 ### Create .env file
 
-open the project in VS code/sublime and create .env file with following values
+Open the project in VS code/sublime and create .env file with following values
 
 ```REACT_APP_PROVIDER_URL=``` https://godwoken-testnet-v1.ckbapp.dev
 
@@ -33,5 +33,7 @@ cd functions && yarn install
 ## Run The APP locally
 
 yarn start
+
+Here is a video to help you setup faunaDB : https://www.loom.com/share/edd028f122eb41c496f0ef357e7444fb
 
 
