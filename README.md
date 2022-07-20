@@ -1,6 +1,6 @@
 # DURAG FINANCE on Godwoken L2 Testet chain
 
-#RUNING THE APP ON LOCAL SYSTEM
+# RUNING THE APP ON LOCAL SYSTEM
 
 ## Clone this repo
 
