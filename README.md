@@ -4,11 +4,11 @@
 
 ## Clone this repo
 
-open terminal and run git clone https://github.com/hidotmatrix/nervos-unisocks-clone-V2.git
+open terminal and run git clone https://github.com/hidotmatrix/durag-finance-ui
 
 ## cd into the directory of th repo and install dependencies
 
-cd nervos-unisocks-clone-V2 && yarn install
+cd durag-finance-ui && yarn install
 
 ## Create .env file
 
